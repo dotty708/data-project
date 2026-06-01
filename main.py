@@ -30,9 +30,8 @@ def load_data(file_path):
     # 연도 컬럼 추가
     df['연도'] = df['날짜'].dt.year
     
-    # 연도별 최고기온의 최댓값, 최저기온의 최솟값 구하기
-    yearly_data = df.groupby('연도
-    ').agg(
+# 연도별 최고기온의 최댓값, 최저기온의 최솟값 구하기
+    yearly_data = df.groupby('연도').agg(
         최고기온_max=('최고기온(℃)', 'max'),
         최저기온_min=('최저기온(℃)', 'min')
     ).reset_index()
